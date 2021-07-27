@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/shopingListFragment"
-        android:name="com.beaudoul.mcommerce.ShoppingListFragment"
+        android:name="com.beaudoul.mcommerce.controllers.ShoppingListFragment"
         android:label="fragment_shoping_list"
         tools:layout="@layout/fragment_shoping_list" />
 </navigation>
