@@ -1,12 +1,17 @@
 package com.beaudoul.mcommerce.adapter
 
+
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.beaudoul.mcommerce.R
 import com.beaudoul.mcommerce.databinding.ProductItemViewBinding
 import com.beaudoul.mcommerce.model.Product
+import com.bumptech.glide.Glide
 
 class ProductAdapter : ListAdapter<Product, ProductAdapter.ProductViewHolder>(ProductsComparator()){
 
@@ -20,10 +25,14 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.ProductViewHolder>(Pr
     }
 
     inner class ProductViewHolder(private val binding: ProductItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(product: Product){
             binding.apply {
                 priceTextView.text = product.price.toString()
                 nameTextView.text = product.name
+
+
+                Glide.with(itemView).load(product.image).placeholder(R.mipmap.ic_launcher).into(imageView)
             }
         }
     }
